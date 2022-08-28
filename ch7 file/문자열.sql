@@ -1,0 +1,21 @@
+SELECT ASCII('A'),CHAR(65);
+SELECT BIT_LENGTH('가나다'),CHAR_LENGTH('가나다'),LENGTH('가나다');
+SELECT CONCAT_WS('/','2025','01','01');
+SELECT ELT(2,'하나','둘','셋'),FIELD('둘','하나','둘','셋'),
+FIND_IN_SET('둘','하나,둘,셋'),INSTR('하나둘셋','둘'),LOCATE('둘','하나둘셋');
+SELECT FORMAT(123456.123456,4);
+SELECT BIN(31),HEX(31),OCT(31);
+SELECT INSERT('abcdefghi',3,4,'@@@@');
+SELECT LEFT('abcdefghi',3);
+SELECT LOWER('abcdEFGHI');
+SELECT LPAD('이것이',5,'##');
+SELECT LTRIM('		이것이');
+SELECT TRIM('		이것이		');
+SELECT TRIM(BOTH 'ㅋ' FROM 'ㅋㅋㅋ재밌어요ㅋㅋㅋ');
+SELECT REPEAT('이것이',3);
+SELECT REPLACE('이것이 MySQL이다','이것이','This is');
+SELECT REVERSE('MySQL');
+SELECT CONCAT('이것이',SPACE(10),'MySQL이다');
+SELECT SUBSTRING('대한민국만세',3,2);
+SELECT SUBSTRING_INDEX('cafe.naver.com','.',2);
+SELECT SUBSTRING_INDEX('cafe.naver.com','.',-2);
