@@ -17,4 +17,17 @@ USE sqldb;
 SELECT B.userID,U.name,prodName,addr,CONCAT(mobile1,mobile2) AS '연락처' FROM buytbl B
 	INNER JOIN usertbl U
     ON B.userID=U.userID
-ORDER BY num;  
+ORDER BY num; 
+USE sqldb;
+SELECT U.userID,U.name,B.prodName,U.addr,CONCAT(U.mobile1,U.mobile2) AS '연락처' FROM usertbl U
+	INNER JOIN buytbl B
+    ON U.userID=B.userID
+ORDER BY U.userID;   
+SELECT DISTINCT U.userID,U.name,U.addr  FROM usertbl U
+	INNER JOIN buytbl B
+    ON U.userID=B.userID
+ORDER BY U.userID;  
+SELECT DISTINCT U.userID,U.name,U.addr  FROM usertbl U
+	WHERE EXISTS (
+    SELECT * FROM buytbl B
+    WHERE U.userID=B.userID);  
