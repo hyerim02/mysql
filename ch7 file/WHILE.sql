@@ -1,0 +1,42 @@
+DROP PROCEDURE IF EXISTS whileproc;
+DELIMITER $$
+CREATE PROCEDURE whileproc()
+BEGIN
+DECLARE i INT;
+DECLARE hap INT;
+SET i=1;
+SET hap=0;
+WHILE(i<=100) DO
+SET hap=hap+i;
+SET i=i+1;
+END WHILE;
+SELECT hap;
+END $$
+DELIMITER ;
+CALL whileproc();
+
+
+DROP PROCEDURE IF EXISTS whileproc2;
+DELIMITER $$
+CREATE PROCEDURE whileproc2()
+BEGIN
+DECLARE i INT;
+DECLARE hap INT;
+SET i=1;
+SET hap=0;
+myWHILE:WHILE(i<=100) DO
+IF(i%7=0)THEN
+SET i=i+1;
+ITERATE myWHILE;
+END IF;
+SET hap=hap+i;
+IF(hap>1000)THEN
+LEAVE myWHILE;
+END IF;
+SET i=i+1;
+END WHILE;
+SELECT hap;
+END $$
+DELIMITER ;
+CALL whileproc2();
+
