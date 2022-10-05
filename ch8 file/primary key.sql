@@ -1,0 +1,40 @@
+USE tabledb;
+DROP TABLE IF EXISTS buytbl,usertbl;
+CREATE TABLE userTBL
+(userID CHAR(8) NOT NULL PRIMARY KEY,
+name VARCHAR(8) NOT NULL,
+birthYear INT NOT NULL);
+
+DESCRIBE usertbl;
+
+#키 이름 지정 
+DROP TABLE IF EXISTS userTBL;
+CREATE TABLE userTBL
+(userID CHAR(8) NOT NULL,
+name VARCHAR(8) NOT NULL,
+birthYear INT NOT NULL,
+CONSTRAINT PRIMARY KEY PK_userTBL_userID(userID));
+
+#CONSTRAINT 생략가능
+#이미 만들어진 후에 테이블 수정
+DROP TABLE IF EXISTS userTBL;
+CREATE TABLE userTBL
+(userID CHAR(8) NOT NULL,
+name VARCHAR(8) NOT NULL,
+birthYear INT NOT NULL);
+ALTER TABLE userTBL
+ADD CONSTRAINT PK_userTBL_userID
+PRIMARY KEY(userID);
+
+#A+B인 경우
+DROP TABLE IF EXISTS prodTbl;
+CREATE TABLE prodTbl
+(prodCode CHAR(3)NOT NULL,
+prodID CHAR(4) NOT NULL,
+prodDate DATETIME NOT NULL,
+prodCur CHAR(10) NULL);
+ALTER TABLE prodTbl
+ADD CONSTRAINT PK_prodTbl_prodCode_prodID
+PRIMARY KEY (prodCode,prodID);
+
+SHOW INDEX FROM prodTbl;
