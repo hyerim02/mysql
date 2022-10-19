@@ -1,0 +1,16 @@
+USE tableDB;
+DROP TABLE IF EXISTS buyTBL, userTBL;
+CREATE TABLE userTBL 
+( userID  CHAR(8) NOT NULL PRIMARY KEY, 
+  name    VARCHAR(10) NOT NULL, 
+  birthYear   INT NOT NULL,  
+  email   CHAR(30) NULL  UNIQUE
+);
+DROP TABLE IF EXISTS userTBL;
+CREATE TABLE userTBL 
+( userID  CHAR(8) NOT NULL PRIMARY KEY,
+  name    VARCHAR(10) NOT NULL, 
+  birthYear   INT NOT NULL,  
+  email   CHAR(30) NULL ,  
+  CONSTRAINT AK_email  UNIQUE (email)
+);
