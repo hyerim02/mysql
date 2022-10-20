@@ -1,4 +1,4 @@
-#sqldb초기화
+-- sqldb초기화
 DROP DATABASE IF EXISTS sqldb;
 CREATE DATABASE sqldb;
 USE sqldb;
