@@ -1,0 +1,1 @@
+SHOW VARIABLES LIKE 'innodb_data_file_path';
